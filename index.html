@@ -45,7 +45,6 @@
     .check{display:flex;gap:9px;align-items:flex-start;margin-top:14px}
     .check input{width:auto;margin-top:4px}
     code{background:#09101f;padding:2px 6px;border-radius:6px;color:#bcdcff}
-    .sep{height:1px;background:var(--border);margin:18px 0}
     .pill{display:inline-block;padding:4px 8px;border:1px solid #33496e;border-radius:999px;color:#bdd2f4;font-size:12px;margin-left:5px}
     .social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
     .social-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--border);background:#0d172b;color:var(--text);transition:transform .15s ease,border-color .15s ease}
@@ -74,19 +73,12 @@
         اضغط الزر مرة واحدة لتسجيل الدخول بحساب Google وربط صلاحية إرسال البلاغات من Gmail.
         لا يتم حفظ كلمة المرور داخل الموقع.
       </div>
-
       <div class="actions">
-        <button class="google-login" onclick="connectGoogle()">
-          <span class="gmark">G</span>
-          المتابعة باستخدام Google
-        </button>
+        <button class="google-login" onclick="connectGoogle()"><span class="gmark">G</span>المتابعة باستخدام Google</button>
         <button class="danger" onclick="disconnectGoogle()">تسجيل الخروج</button>
       </div>
-
       <div id="googleStatus" class="status">غير مسجل الدخول حالياً.</div>
-      <div id="ownerSetup" class="status hidden">
-        إعداد المالك غير مكتمل بعد. يجب وضع Google OAuth Client ID مرة واحدة داخل ملف الموقع قبل توزيعه.
-      </div>
+      <div id="ownerSetup" class="status hidden">إعداد المالك غير مكتمل بعد. يجب وضع Google OAuth Client ID مرة واحدة داخل ملف الموقع قبل توزيعه.</div>
     </section>
 
     <section class="card">
@@ -95,35 +87,18 @@
       <input id="reporterName" placeholder="اكتب الاسم الكامل" />
       <label>الصفة أو الجهة</label>
       <input id="reporterRole" placeholder="مثال: صاحب المحتوى / ممثل الجهة / مخوّل بالمتابعة" />
-      <div class="row">
-        <div>
-          <label>الهاتف</label>
-          <input id="phone" placeholder="+964..." />
-        </div>
-        <div>
-          <label>البريد المرجعي</label>
-          <input id="referenceEmail" placeholder="اختياري" />
-        </div>
-      </div>
     </section>
   </div>
 
   <section class="card" style="margin-top:18px">
     <h2>3) إنشاء بلاغ جديد</h2>
-
     <div class="row">
       <div>
         <label>المنصة</label>
         <select id="platform" onchange="updatePlatformRoute()">
-          <option value="TikTok">TikTok</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Instagram">Instagram</option>
-          <option value="YouTube">YouTube</option>
-          <option value="X">X / Twitter</option>
-          <option value="Telegram">Telegram</option>
-          <option value="Snapchat">Snapchat</option>
-          <option value="WhatsApp">WhatsApp</option>
-          <option value="Other">منصة أخرى</option>
+          <option value="TikTok">TikTok</option><option value="Facebook">Facebook</option><option value="Instagram">Instagram</option>
+          <option value="YouTube">YouTube</option><option value="X">X / Twitter</option><option value="Telegram">Telegram</option>
+          <option value="Snapchat">Snapchat</option><option value="WhatsApp">WhatsApp</option><option value="Other">منصة أخرى</option>
         </select>
       </div>
       <div>
@@ -140,44 +115,24 @@
         </select>
       </div>
     </div>
-
     <label>رابط المحتوى أو الحساب</label>
     <input id="contentUrl" placeholder="https://..." />
-
     <label>اسم المستخدم / الحساب المخالف</label>
     <input id="offender" placeholder="@username أو اسم الحساب" />
-
     <label>وصف مختصر للواقعة</label>
     <textarea id="details" placeholder="اكتب ماذا حصل باختصار وبدقة، ومن دون مبالغة أو معلومات غير متأكد منها."></textarea>
-
     <div class="row">
-      <div>
-        <label>تاريخ اكتشاف الحالة</label>
-        <input id="dateSeen" type="date" />
-      </div>
-      <div>
-        <label>درجة الاستعجال</label>
-        <select id="urgency">
-          <option value="normal">عادي</option>
-          <option value="urgent">عاجل</option>
-          <option value="critical">حرج — تهديد/ابتزاز/خطر مباشر</option>
-        </select>
-      </div>
+      <div><label>تاريخ اكتشاف الحالة</label><input id="dateSeen" type="date" /></div>
+      <div><label>درجة الاستعجال</label><select id="urgency"><option value="normal">عادي</option><option value="urgent">عاجل</option><option value="critical">حرج — تهديد/ابتزاز/خطر مباشر</option></select></div>
     </div>
-
     <label>البريد الرسمي المستلم للطلب</label>
     <input id="recipient" placeholder="ضع بريد الاستقبال الرسمي للمنصة أو الجهة المختصة بعد التحقق منه" />
     <div class="small">بعض المنصات لا تستقبل بلاغات الإزالة عبر البريد وتفرض نموذجاً رسمياً؛ عندها استخدم زر المسار الرسمي أدناه والصق النص المولّد.</div>
-
     <div id="platformRoute" class="platform-route status"></div>
-
     <div class="check">
       <input id="truthConfirm" type="checkbox" />
-      <label for="truthConfirm" style="margin:0;font-weight:400">
-        أؤكد أن المعلومات صحيحة حسب علمي، وأنني صاحب الحق أو مخوّل بالمتابعة، ولن أستخدم الأداة لبلاغات كاذبة أو انتقامية.
-      </label>
+      <label for="truthConfirm" style="margin:0;font-weight:400">أؤكد أن المعلومات صحيحة حسب علمي، وأنني صاحب الحق أو مخوّل بالمتابعة، ولن أستخدم الأداة لبلاغات كاذبة أو انتقامية.</label>
     </div>
-
     <div class="actions">
       <button class="secondary" onclick="generateReport()">توليد صياغة البلاغ</button>
       <button class="success" onclick="sendWithGmail()">إرسال من Gmail</button>
@@ -186,21 +141,20 @@
   </section>
 
   <section class="card" style="margin-top:18px">
-    <h2>4) نص البلاغ الجاهز</h2>
+    <h2>4) نص البلاغ الجاهز والمرفقات</h2>
     <label>العنوان</label>
     <input id="subject" />
     <label>النص</label>
     <textarea id="reportText" style="min-height:420px"></textarea>
+    <label>إضافة صور أو ملفات فيديو صغيرة</label>
+    <input id="attachments" type="file" multiple accept="image/*,video/*,.pdf" onchange="updateAttachmentStatus()" />
+    <div id="attachmentStatus" class="small">اختياري — يمكنك إرفاق عدة صور أو فيديوهات قصيرة أو PDF. الحد الإجمالي للمرفقات 15 MB.</div>
     <div id="sendStatus" class="status">لم يتم الإرسال بعد.</div>
   </section>
 
   <div class="social-links" aria-label="روابط التواصل" style="justify-content:center;margin:18px 0 4px">
-    <a class="social-link" href="https://www.facebook.com/id13201" target="_blank" rel="noopener noreferrer" aria-label="فتح صفحة فيسبوك">
-      <span class="social-icon facebook-icon">f</span><span>فيسبوك</span>
-    </a>
-    <a class="social-link" href="https://wa.me/9647721754555" target="_blank" rel="noopener noreferrer" aria-label="فتح واتساب">
-      <span class="social-icon whatsapp-icon">☎</span><span>واتساب</span>
-    </a>
+    <a class="social-link" href="https://www.facebook.com/id13201" target="_blank" rel="noopener noreferrer"><span class="social-icon facebook-icon">f</span><span>فيسبوك</span></a>
+    <a class="social-link" href="https://wa.me/9647721754555" target="_blank" rel="noopener noreferrer"><span class="social-icon whatsapp-icon">☎</span><span>واتساب</span></a>
   </div>
 
   <div class="footer">
@@ -215,235 +169,135 @@
 
 <script>
 let accessToken = null;
-
-// إعداد المالك: ضع Google OAuth Client ID هنا مرة واحدة فقط قبل توزيع الموقع.
-// هذا المعرّف ليس كلمة مرور ولا مفتاحاً سرياً.
 const GOOGLE_CLIENT_ID = "176131693334-hkc4tpvolpt1dtedd8a8767higqi8348.apps.googleusercontent.com";
+const MAX_ATTACHMENTS_BYTES = 15 * 1024 * 1024;
 
 const routes = {
-  TikTok: {name:"TikTok — مركز المساعدة/الإبلاغ", url:"https://support.tiktok.com/"},
-  Facebook: {name:"Facebook — مركز المساعدة", url:"https://www.facebook.com/help/"},
-  Instagram: {name:"Instagram — مركز المساعدة", url:"https://help.instagram.com/"},
-  YouTube: {name:"YouTube — المساعدة والإبلاغ", url:"https://support.google.com/youtube/"},
-  X: {name:"X — مركز المساعدة", url:"https://help.x.com/"},
-  Telegram: {name:"Telegram — الدعم والأسئلة الشائعة", url:"https://telegram.org/faq"},
-  Snapchat: {name:"Snapchat — الدعم", url:"https://help.snapchat.com/"},
-  WhatsApp: {name:"WhatsApp — مركز المساعدة", url:"https://faq.whatsapp.com/"},
-  Other: {name:"تحقق من صفحة الدعم الرسمية للمنصة", url:""}
+  TikTok:{name:"TikTok — مركز المساعدة/الإبلاغ",url:"https://support.tiktok.com/"}, Facebook:{name:"Facebook — مركز المساعدة",url:"https://www.facebook.com/help/"},
+  Instagram:{name:"Instagram — مركز المساعدة",url:"https://help.instagram.com/"}, YouTube:{name:"YouTube — المساعدة والإبلاغ",url:"https://support.google.com/youtube/"},
+  X:{name:"X — مركز المساعدة",url:"https://help.x.com/"}, Telegram:{name:"Telegram — الدعم والأسئلة الشائعة",url:"https://telegram.org/faq"},
+  Snapchat:{name:"Snapchat — الدعم",url:"https://help.snapchat.com/"}, WhatsApp:{name:"WhatsApp — مركز المساعدة",url:"https://faq.whatsapp.com/"}, Other:{name:"تحقق من صفحة الدعم الرسمية للمنصة",url:""}
 };
 
 function updatePlatformRoute(){
-  const p = document.getElementById("platform").value;
-  const r = routes[p];
-  const box = document.getElementById("platformRoute");
-  if(r.url){
-    box.innerHTML = `المسار الرسمي المقترح: <a class="btn secondary" style="padding:7px 10px;margin-right:8px" target="_blank" rel="noopener" href="${r.url}">${r.name}</a>`;
-  } else {
-    box.textContent = r.name;
-  }
+  const r=routes[document.getElementById("platform").value], box=document.getElementById("platformRoute");
+  box.innerHTML=r.url?`المسار الرسمي المقترح: <a class="btn secondary" style="padding:7px 10px;margin-right:8px" target="_blank" rel="noopener" href="${r.url}">${r.name}</a>`:r.name;
 }
 
 function connectGoogle(){
-  accessToken = null;
-  const clientId = GOOGLE_CLIENT_ID;
-  if(!clientId || clientId.includes("YOUR_GOOGLE_OAUTH_CLIENT_ID")){
-    document.getElementById("ownerSetup").classList.remove("hidden");
-    alert("إعداد Google الخاص بمالك الموقع لم يكتمل بعد.");
-    return;
-  }
-  if(!window.google || !google.accounts || !google.accounts.oauth2){
-    alert("خدمة Google لم تكتمل بعد. انتظر ثواني ثم أعد المحاولة.");
-    return;
-  }
-
-  const tokenClient = google.accounts.oauth2.initTokenClient({
-    client_id: clientId,
-    scope: "https://www.googleapis.com/auth/gmail.send",
-    include_granted_scopes: false,
-    callback: async (resp) => {
-      if(resp.error){
-        document.getElementById("googleStatus").textContent = "تعذر تسجيل الدخول: " + resp.error;
-        return;
-      }
-      accessToken = resp.access_token;
-      document.getElementById("googleStatus").textContent = "تم تسجيل الدخول إلى Google وربط Gmail للإرسال.";
+  accessToken=null;
+  if(!GOOGLE_CLIENT_ID){alert("إعداد Google غير مكتمل.");return;}
+  if(!window.google?.accounts?.oauth2){alert("خدمة Google لم تكتمل بعد. انتظر ثواني ثم أعد المحاولة.");return;}
+  const tokenClient=google.accounts.oauth2.initTokenClient({
+    client_id:GOOGLE_CLIENT_ID,
+    scope:"https://www.googleapis.com/auth/gmail.send",
+    include_granted_scopes:false,
+    callback:(resp)=>{
+      if(resp.error){document.getElementById("googleStatus").textContent="تعذر تسجيل الدخول: "+resp.error;return;}
+      accessToken=resp.access_token;
+      document.getElementById("googleStatus").textContent="تم تسجيل الدخول إلى Google وربط Gmail للإرسال.";
     }
   });
-
   tokenClient.requestAccessToken({prompt:"consent"});
 }
 
 function disconnectGoogle(){
-  if(accessToken && window.google?.accounts?.oauth2){
-    google.accounts.oauth2.revoke(accessToken, () => {});
-  }
-  accessToken = null;
-  document.getElementById("googleStatus").textContent = "تم فصل الربط.";
+  if(accessToken&&window.google?.accounts?.oauth2) google.accounts.oauth2.revoke(accessToken,()=>{});
+  accessToken=null;
+  document.getElementById("googleStatus").textContent="تم فصل الربط.";
 }
 
 function violationLabel(v){
-  const map = {
-    privacy:"انتهاك الخصوصية / نشر بدون إذن",
-    sexual:"محتوى جنسي أو إيحاءات جنسية غير رضائية",
-    harassment:"تحرش / إساءة / تشهير",
-    threat:"تهديد أو ابتزاز",
-    impersonation:"انتحال شخصية",
-    copyright:"حقوق نشر / ملكية محتوى",
-    minor:"محتوى يتعلق بقاصر أو سلامة طفل",
-    other:"انتهاك آخر"
-  };
-  return map[v] || v;
+  const map={privacy:"انتهاك الخصوصية / نشر بدون إذن",sexual:"محتوى جنسي أو إيحاءات جنسية غير رضائية",harassment:"تحرش / إساءة / تشهير",threat:"تهديد أو ابتزاز",impersonation:"انتحال شخصية",copyright:"حقوق نشر / ملكية محتوى",minor:"محتوى يتعلق بقاصر أو سلامة طفل",other:"انتهاك آخر"};
+  return map[v]||v;
 }
-
-function urgencyLabel(v){
-  return v==="critical" ? "حرج" : (v==="urgent" ? "عاجل" : "عادي");
-}
+function urgencyLabel(v){return v==="critical"?"حرج":(v==="urgent"?"عاجل":"عادي");}
 
 function generateReport(){
-  const reporterName = document.getElementById("reporterName").value.trim();
-  const reporterRole = document.getElementById("reporterRole").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const referenceEmail = document.getElementById("referenceEmail").value.trim();
-  const platform = document.getElementById("platform").value;
-  const violation = document.getElementById("violation").value;
-  const url = document.getElementById("contentUrl").value.trim();
-  const offender = document.getElementById("offender").value.trim();
-  const details = document.getElementById("details").value.trim();
-  const dateSeen = document.getElementById("dateSeen").value;
-  const urgency = document.getElementById("urgency").value;
-
-  if(!url){ alert("أدخل رابط المحتوى أو الحساب."); return false; }
-
-  const subject = `[${urgencyLabel(urgency)}] طلب مراجعة وإزالة محتوى — ${platform} — ${violationLabel(violation)}`;
-  const ar = `إلى فريق السلامة/الخصوصية في ${platform},
-
-تحية طيبة،
-
-أتقدم بهذا الطلب بخصوص محتوى أو حساب أعتقد أنه ينتهك حقوق الخصوصية/السلامة أو السياسات ذات الصلة.
-
-نوع الانتهاك: ${violationLabel(violation)}
-الرابط: ${url}
-الحساب أو اسم المستخدم: ${offender || "غير متوفر"}
-تاريخ اكتشاف الحالة: ${dateSeen || "غير محدد"}
-درجة الاستعجال: ${urgencyLabel(urgency)}
-
-وصف الواقعة:
-${details || "يرجى مراجعة الرابط أعلاه والتحقق من الانتهاك."}
-
-أطلب من فريقكم مراجعة الحالة بصورة عاجلة واتخاذ الإجراء المناسب وفق شروط الخدمة وسياسات السلامة والخصوصية، بما في ذلك إزالة المحتوى أو تقييد الوصول إليه إذا ثبتت المخالفة.
-
-بيانات مقدم الطلب:
-الاسم: ${reporterName || "غير محدد"}
-الصفة/الجهة: ${reporterRole || "غير محددة"}
-الهاتف: ${phone || "غير محدد"}
-البريد المرجعي: ${referenceEmail || "غير محدد"}
-
-أؤكد أن المعلومات الواردة أعلاه صحيحة حسب علمي وأن هذا الطلب مقدم بحسن نية.
-
-مع التقدير،
-${reporterName || ""}`;
-
-  const en = `
-
-------------------------------
-English version
-------------------------------
-
-To the ${platform} Safety / Privacy Team,
-
-I am submitting this request regarding content or an account that I believe violates applicable privacy, safety, or platform policies.
-
-Violation category: ${violationLabel(violation)}
-URL: ${url}
-Account / username: ${offender || "Not available"}
-Date discovered: ${dateSeen || "Not specified"}
-Urgency: ${urgencyLabel(urgency)}
-
-Incident summary:
-${details || "Please review the URL above and assess the reported violation."}
-
-I respectfully request an expedited review and appropriate action under your Terms of Service and relevant safety/privacy policies, including removal or restriction of the content where a violation is confirmed.
-
-Reporter details:
-Name: ${reporterName || "Not specified"}
-Role / organization: ${reporterRole || "Not specified"}
-Phone: ${phone || "Not specified"}
-Reference email: ${referenceEmail || "Not specified"}
-
-I confirm that the information above is accurate to the best of my knowledge and that this report is submitted in good faith.
-
-Regards,
-${reporterName || ""}`;
-
-  document.getElementById("subject").value = subject;
-  document.getElementById("reportText").value = ar + en;
+  const reporterName=document.getElementById("reporterName").value.trim();
+  const reporterRole=document.getElementById("reporterRole").value.trim();
+  const platform=document.getElementById("platform").value;
+  const violation=document.getElementById("violation").value;
+  const url=document.getElementById("contentUrl").value.trim();
+  const offender=document.getElementById("offender").value.trim();
+  const details=document.getElementById("details").value.trim();
+  const dateSeen=document.getElementById("dateSeen").value;
+  const urgency=document.getElementById("urgency").value;
+  if(!url){alert("أدخل رابط المحتوى أو الحساب.");return false;}
+  const subject=`[${urgencyLabel(urgency)}] طلب مراجعة وإزالة محتوى — ${platform} — ${violationLabel(violation)}`;
+  const ar=`إلى فريق السلامة/الخصوصية في ${platform},\n\nتحية طيبة،\n\nأتقدم بهذا الطلب بخصوص محتوى أو حساب أعتقد أنه ينتهك حقوق الخصوصية/السلامة أو السياسات ذات الصلة.\n\nنوع الانتهاك: ${violationLabel(violation)}\nالرابط: ${url}\nالحساب أو اسم المستخدم: ${offender||"غير متوفر"}\nتاريخ اكتشاف الحالة: ${dateSeen||"غير محدد"}\nدرجة الاستعجال: ${urgencyLabel(urgency)}\n\nوصف الواقعة:\n${details||"يرجى مراجعة الرابط أعلاه والتحقق من الانتهاك."}\n\nأطلب من فريقكم مراجعة الحالة واتخاذ الإجراء المناسب وفق شروط الخدمة وسياسات السلامة والخصوصية، بما في ذلك إزالة المحتوى أو تقييد الوصول إليه إذا ثبتت المخالفة.\n\nبيانات مقدم الطلب:\nالاسم: ${reporterName||"غير محدد"}\nالصفة/الجهة: ${reporterRole||"غير محددة"}\n\nأؤكد أن المعلومات الواردة أعلاه صحيحة حسب علمي وأن هذا الطلب مقدم بحسن نية.\n\nمع التقدير،\n${reporterName||""}`;
+  const en=`\n\n------------------------------\nEnglish version\n------------------------------\n\nTo the ${platform} Safety / Privacy Team,\n\nI am submitting this request regarding content or an account that I believe violates applicable privacy, safety, or platform policies.\n\nViolation category: ${violationLabel(violation)}\nURL: ${url}\nAccount / username: ${offender||"Not available"}\nDate discovered: ${dateSeen||"Not specified"}\nUrgency: ${urgencyLabel(urgency)}\n\nIncident summary:\n${details||"Please review the URL above and assess the reported violation."}\n\nI respectfully request a review and appropriate action under your Terms of Service and relevant safety/privacy policies, including removal or restriction of the content where a violation is confirmed.\n\nReporter details:\nName: ${reporterName||"Not specified"}\nRole / organization: ${reporterRole||"Not specified"}\n\nI confirm that the information above is accurate to the best of my knowledge and that this report is submitted in good faith.\n\nRegards,\n${reporterName||""}`;
+  document.getElementById("subject").value=subject;
+  document.getElementById("reportText").value=ar+en;
   return true;
 }
 
 function utf8ToBase64Url(str){
-  const bytes = new TextEncoder().encode(str);
-  let binary = "";
-  bytes.forEach(b => binary += String.fromCharCode(b));
+  const bytes=new TextEncoder().encode(str); let binary="";
+  for(let i=0;i<bytes.length;i++) binary+=String.fromCharCode(bytes[i]);
   return btoa(binary).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
+function bytesToBase64(bytes){
+  let binary=""; const chunk=0x8000;
+  for(let i=0;i<bytes.length;i+=chunk) binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+chunk,bytes.length)));
+  return btoa(binary);
+}
+function wrapBase64(s){return s.match(/.{1,76}/g)?.join("\r\n")||s;}
+function encodeHeader(value){return "=?UTF-8?B?"+btoa(unescape(encodeURIComponent(value)))+"?=";}
+
+function updateAttachmentStatus(){
+  const files=[...document.getElementById("attachments").files];
+  const total=files.reduce((sum,f)=>sum+f.size,0);
+  const box=document.getElementById("attachmentStatus");
+  if(!files.length){box.textContent="اختياري — يمكنك إرفاق عدة صور أو فيديوهات قصيرة أو PDF. الحد الإجمالي للمرفقات 15 MB.";return;}
+  box.textContent=`تم اختيار ${files.length} ملف/ملفات — الحجم الإجمالي ${(total/1024/1024).toFixed(2)} MB`+(total>MAX_ATTACHMENTS_BYTES?" — الحجم أكبر من الحد المسموح":"");
+}
+
+async function buildMimeMessage(to,subject,body,files){
+  if(!files.length) return `To: ${to}\r\nSubject: ${encodeHeader(subject)}\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n${body}`;
+  const boundary="YT_REPORTS_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+  let mime=`To: ${to}\r\nSubject: ${encodeHeader(subject)}\r\nMIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary=\"${boundary}\"\r\n\r\n`;
+  mime+=`--${boundary}\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n${body}\r\n`;
+  for(const file of files){
+    const bytes=new Uint8Array(await file.arrayBuffer());
+    const base64=wrapBase64(bytesToBase64(bytes));
+    const safeName=file.name.replace(/[\r\n"]/g,"_");
+    mime+=`--${boundary}\r\nContent-Type: ${file.type||"application/octet-stream"}; name=\"${safeName}\"\r\nContent-Disposition: attachment; filename=\"${safeName}\"\r\nContent-Transfer-Encoding: base64\r\n\r\n${base64}\r\n`;
+  }
+  mime+=`--${boundary}--`;
+  return mime;
 }
 
 async function sendWithGmail(){
-  if(!document.getElementById("truthConfirm").checked){
-    alert("يجب تأكيد صحة المعلومات والتخويل قبل الإرسال.");
-    return;
-  }
-  if(!accessToken){
-    alert("اربط Google أولاً.");
-    return;
-  }
-  const to = document.getElementById("recipient").value.trim();
-  if(!to){
-    alert("أدخل البريد الرسمي المستلم للطلب. إذا كانت المنصة تستخدم نموذجاً رسمياً فقط، استخدم زر المسار الرسمي وانسخ النص.");
-    return;
-  }
-  if(!document.getElementById("reportText").value.trim()){
-    if(!generateReport()) return;
-  }
-
-  const subject = document.getElementById("subject").value.trim();
-  const body = document.getElementById("reportText").value;
-  const mime = `To: ${to}\r\nSubject: ${subject}\r\nContent-Type: text/plain; charset="UTF-8"\r\n\r\n${body}`;
-  const raw = utf8ToBase64Url(mime);
-
-  const box = document.getElementById("sendStatus");
-  box.textContent = "جاري الإرسال عبر Gmail...";
+  if(!document.getElementById("truthConfirm").checked){alert("يجب تأكيد صحة المعلومات والتخويل قبل الإرسال.");return;}
+  if(!accessToken){alert("اربط Google أولاً.");return;}
+  const to=document.getElementById("recipient").value.trim();
+  if(!to){alert("أدخل البريد الرسمي المستلم للطلب.");return;}
+  if(!document.getElementById("reportText").value.trim()&&!generateReport()) return;
+  const files=[...document.getElementById("attachments").files];
+  const total=files.reduce((sum,f)=>sum+f.size,0);
+  if(total>MAX_ATTACHMENTS_BYTES){alert("حجم المرفقات كبير. قلل الحجم حتى يكون مجموع الملفات 15 MB أو أقل.");return;}
+  const subject=document.getElementById("subject").value.trim();
+  const body=document.getElementById("reportText").value;
+  const box=document.getElementById("sendStatus");
+  box.textContent=files.length?"جاري تجهيز المرفقات والإرسال عبر Gmail...":"جاري الإرسال عبر Gmail...";
   try{
-    const resp = await fetch("https://gmail.googleapis.com/gmail/v1/users/me/messages/send", {
-      method:"POST",
-      headers:{
-        "Authorization":"Bearer " + accessToken,
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({raw})
-    });
-    const data = await resp.json();
-    if(!resp.ok) throw new Error(data?.error?.message || "Gmail API error");
-    box.textContent = "تم إرسال البريد بنجاح من حساب Gmail المرتبط. Message ID: " + data.id;
-  }catch(e){
-    box.textContent = "تعذر الإرسال: " + e.message;
-  }
+    const mime=await buildMimeMessage(to,subject,body,files);
+    const raw=utf8ToBase64Url(mime);
+    const resp=await fetch("https://gmail.googleapis.com/gmail/v1/users/me/messages/send",{method:"POST",headers:{"Authorization":"Bearer "+accessToken,"Content-Type":"application/json"},body:JSON.stringify({raw})});
+    const data=await resp.json();
+    if(!resp.ok) throw new Error(data?.error?.message||"Gmail API error");
+    box.textContent="تم إرسال البريد بنجاح من حساب Gmail المرتبط"+(files.length?` مع ${files.length} مرفق/مرفقات.`:".")+" Message ID: "+data.id;
+  }catch(e){box.textContent="تعذر الإرسال: "+e.message;}
 }
 
 async function copyReport(){
   if(!document.getElementById("reportText").value.trim()) generateReport();
-  const text = document.getElementById("reportText").value;
-  try{
-    await navigator.clipboard.writeText(text);
-    document.getElementById("sendStatus").textContent = "تم نسخ نص البلاغ.";
-  }catch(e){
-    alert("تعذر النسخ التلقائي. ظلّل النص وانسخه يدوياً.");
-  }
+  try{await navigator.clipboard.writeText(document.getElementById("reportText").value);document.getElementById("sendStatus").textContent="تم نسخ نص البلاغ.";}
+  catch(e){alert("تعذر النسخ التلقائي. ظلّل النص وانسخه يدوياً.");}
 }
 
-window.addEventListener("load", () => {
-  document.getElementById("dateSeen").value = new Date().toISOString().slice(0,10);
-  updatePlatformRoute();
-});
+window.addEventListener("load",()=>{document.getElementById("dateSeen").value=new Date().toISOString().slice(0,10);updatePlatformRoute();});
 </script>
 </body>
 </html>
