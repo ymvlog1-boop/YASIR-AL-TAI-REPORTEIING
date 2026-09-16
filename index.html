@@ -52,6 +52,19 @@
     .social-icon{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:Arial,sans-serif;font-weight:900}
     .facebook-icon{background:#1877f2}
     .whatsapp-icon{background:#25d366}
+    .gov-main{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px}
+    .gov-link{background:#173a2a;color:#d9ffe9;border:1px solid #2d6b4c}
+    .gov-groups{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:760px){.gov-groups{grid-template-columns:1fr}}
+    .gov-group{background:#0c1527;border:1px solid var(--border);border-radius:16px;padding:15px}
+    .gov-group h3{margin:0 0 6px;font-size:17px}
+    .contact-list{display:grid;gap:9px;margin-top:12px}
+    .call-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;border:1px solid #2e4068;border-radius:12px;background:#0b1326}
+    .call-row .desc{min-width:0}
+    .call-row .name{font-weight:700;color:#edf4ff}
+    .call-row .note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
+    .call-btn{white-space:nowrap;background:#183b57;color:#dff3ff;border:1px solid #2b648c;padding:9px 12px}
+    @media(max-width:560px){.call-row{align-items:stretch;flex-direction:column}.call-btn{width:100%}}
   </style>
 </head>
 <body>
@@ -150,6 +163,64 @@
     <input id="attachments" type="file" multiple accept="image/*,video/*,.pdf" onchange="updateAttachmentStatus()" />
     <div id="attachmentStatus" class="small">اختياري — يمكنك إرفاق عدة صور أو فيديوهات قصيرة أو PDF. الحد الإجمالي للمرفقات 15 MB.</div>
     <div id="sendStatus" class="status">لم يتم الإرسال بعد.</div>
+  </section>
+
+  <section class="card" style="margin-top:18px">
+    <h2>5) الإبلاغ الحكومي عن محتوى</h2>
+    <div class="small">استخدم الجهة الأقرب لنوع الحالة. زر الاتصال يفتح الاتصال مباشرة على الهاتف، أما منصة «بلّغ» فتفتح نموذج التبليغ الحكومي الرسمي.</div>
+
+    <h3 style="margin:16px 0 6px">وزارة الداخلية / منصة بلّغ</h3>
+    <div class="gov-main">
+      <a class="btn gov-link" href="https://eservice.ur.gov.iq/index/applyservice/10353" target="_blank" rel="noopener noreferrer">فتح منصة بلّغ للتبليغ عن محتوى</a>
+    </div>
+
+    <div class="gov-groups">
+      <div class="gov-group">
+        <h3>الحكومة الاتحادية</h3>
+        <div class="small">للابتزاز الإلكتروني، التهديدات، الحالات الأمنية والطوارئ داخل العراق.</div>
+        <div class="contact-list">
+          <div class="call-row">
+            <div class="desc"><div class="name">911 — الطوارئ الموحد / وزارة الداخلية</div><div class="note">للحالات الطارئة والاستجابة السريعة.</div></div>
+            <a class="btn call-btn" href="tel:911">اتصال 911</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">131 — جهاز الأمن الوطني العراقي</div><div class="note">للابتزاز الإلكتروني، انتحال الصفة وما يهدد أمن وسلامة المواطن.</div></div>
+            <a class="btn call-btn" href="tel:131">اتصال 131</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">497 — الشرطة المجتمعية</div><div class="note">للابتزاز الإلكتروني والمشكلات والبلاغات المجتمعية.</div></div>
+            <a class="btn call-btn" href="tel:497">اتصال 497</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gov-group">
+        <h3>حكومة إقليم كوردستان</h3>
+        <div class="small">للشكاوى الرسمية، الشرطة، الأسايش والحالات المرتبطة بالعنف أو التهديد داخل الإقليم.</div>
+        <div class="contact-list">
+          <div class="call-row">
+            <div class="desc"><div class="name">414 — وزارة داخلية الإقليم</div><div class="note">الخط الساخن للشكاوى والطلبات لدى وزارة الداخلية.</div></div>
+            <a class="btn call-btn" href="tel:414">اتصال 414</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">066104 — شرطة الطوارئ</div><div class="note">للحالات التي تحتاج تدخل الشرطة بصورة عاجلة.</div></div>
+            <a class="btn call-btn" href="tel:066104">اتصال</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">066106 — الأسايش</div><div class="note">رقم الأمن/الأسايش المنشور ضمن أرقام الطوارئ الرسمية.</div></div>
+            <a class="btn call-btn" href="tel:066106">اتصال</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">0662221583 — الأسايش</div><div class="note">رقم إضافي للأمن/الأسايش ضمن قائمة الطوارئ الرسمية.</div></div>
+            <a class="btn call-btn" href="tel:0662221583">اتصال</a>
+          </div>
+          <div class="call-row">
+            <div class="desc"><div class="name">119 — خط مكافحة العنف</div><div class="note">خط مجاني على مدار الساعة للعنف والتهديدات والمشكلات الأسرية، وقد تُسجَّل عبره بعض الشكاوى الإلكترونية المرتبطة بهذه الحالات.</div></div>
+            <a class="btn call-btn" href="tel:119">اتصال 119</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="social-links" aria-label="روابط التواصل" style="justify-content:center;margin:18px 0 4px">
