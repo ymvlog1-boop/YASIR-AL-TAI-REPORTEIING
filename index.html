@@ -244,6 +244,7 @@ function updatePlatformRoute(){
 }
 
 function connectGoogle(){
+  accessToken = null;
   const clientId = GOOGLE_CLIENT_ID;
   if(!clientId || clientId.includes("YOUR_GOOGLE_OAUTH_CLIENT_ID")){
     document.getElementById("ownerSetup").classList.remove("hidden");
@@ -257,7 +258,8 @@ function connectGoogle(){
 
   const tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: clientId,
-    scope: "openid email profile https://www.googleapis.com/auth/gmail.send",
+    scope: "https://www.googleapis.com/auth/gmail.send",
+    include_granted_scopes: false,
     callback: async (resp) => {
       if(resp.error){
         document.getElementById("googleStatus").textContent = "تعذر تسجيل الدخول: " + resp.error;
