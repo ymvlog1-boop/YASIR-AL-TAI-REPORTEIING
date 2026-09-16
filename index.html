@@ -47,6 +47,12 @@
     code{background:#09101f;padding:2px 6px;border-radius:6px;color:#bcdcff}
     .sep{height:1px;background:var(--border);margin:18px 0}
     .pill{display:inline-block;padding:4px 8px;border:1px solid #33496e;border-radius:999px;color:#bdd2f4;font-size:12px;margin-left:5px}
+    .social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .social-link{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--border);background:#0d172b;color:var(--text);transition:transform .15s ease,border-color .15s ease}
+    .social-link:hover{transform:translateY(-1px);border-color:#5a77a8}
+    .social-icon{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:Arial,sans-serif;font-weight:900;font-size:16px}
+    .facebook-icon{background:#1877f2}
+    .whatsapp-icon{background:#25d366;font-size:14px}
   </style>
 </head>
 <body>
@@ -59,6 +65,14 @@
       تنظّم الحالة، تصنّف نوع الانتهاك، تنشئ صياغة رسمية بالعربية والإنجليزية، وتسمح بإرسال الطلب من Gmail بعد ربط حساب Google بصلاحية الإرسال فقط.
     </div>
     <div class="badge">لا تحفظ كلمة مرور Google — الربط يتم عبر OAuth الرسمي</div>
+    <div class="social-links" aria-label="روابط التواصل">
+      <a class="social-link" href="https://www.facebook.com/id13201" target="_blank" rel="noopener noreferrer" aria-label="فتح صفحة فيسبوك">
+        <span class="social-icon facebook-icon">f</span><span>فيسبوك</span>
+      </a>
+      <a class="social-link" href="https://wa.me/9647721754555" target="_blank" rel="noopener noreferrer" aria-label="فتح واتساب">
+        <span class="social-icon whatsapp-icon">☎</span><span>واتساب</span>
+      </a>
+    </div>
   </section>
 
   <div class="grid">
@@ -86,7 +100,7 @@
     <section class="card">
       <h2>2) بيانات الجهة/صاحب الطلب</h2>
       <label>الاسم</label>
-      <input id="reporterName" value="المصور ياسر الطائي" />
+      <input id="reporterName" placeholder="اكتب الاسم الكامل" />
       <label>الصفة أو الجهة</label>
       <input id="reporterRole" placeholder="مثال: صاحب المحتوى / ممثل الجهة / مخوّل بالمتابعة" />
       <div class="row">
