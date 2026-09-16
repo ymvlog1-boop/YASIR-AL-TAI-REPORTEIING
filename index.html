@@ -48,11 +48,11 @@
     .sep{height:1px;background:var(--border);margin:18px 0}
     .pill{display:inline-block;padding:4px 8px;border:1px solid #33496e;border-radius:999px;color:#bdd2f4;font-size:12px;margin-left:5px}
     .social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    .social-link{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--border);background:#0d172b;color:var(--text);transition:transform .15s ease,border-color .15s ease}
+    .social-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--border);background:#0d172b;color:var(--text);transition:transform .15s ease,border-color .15s ease}
     .social-link:hover{transform:translateY(-1px);border-color:#5a77a8}
-    .social-icon{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:Arial,sans-serif;font-weight:900;font-size:16px}
+    .social-icon{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-family:Arial,sans-serif;font-weight:900}
     .facebook-icon{background:#1877f2}
-    .whatsapp-icon{background:#25d366;font-size:14px}
+    .whatsapp-icon{background:#25d366}
   </style>
 </head>
 <body>
@@ -65,14 +65,6 @@
       تنظّم الحالة، تصنّف نوع الانتهاك، تنشئ صياغة رسمية بالعربية والإنجليزية، وتسمح بإرسال الطلب من Gmail بعد ربط حساب Google بصلاحية الإرسال فقط.
     </div>
     <div class="badge">لا تحفظ كلمة مرور Google — الربط يتم عبر OAuth الرسمي</div>
-    <div class="social-links" aria-label="روابط التواصل">
-      <a class="social-link" href="https://www.facebook.com/id13201" target="_blank" rel="noopener noreferrer" aria-label="فتح صفحة فيسبوك">
-        <span class="social-icon facebook-icon">f</span><span>فيسبوك</span>
-      </a>
-      <a class="social-link" href="https://wa.me/9647721754555" target="_blank" rel="noopener noreferrer" aria-label="فتح واتساب">
-        <span class="social-icon whatsapp-icon">☎</span><span>واتساب</span>
-      </a>
-    </div>
   </section>
 
   <div class="grid">
@@ -202,6 +194,15 @@
     <div id="sendStatus" class="status">لم يتم الإرسال بعد.</div>
   </section>
 
+  <div class="social-links" aria-label="روابط التواصل" style="justify-content:center;margin:18px 0 4px">
+    <a class="social-link" href="https://www.facebook.com/id13201" target="_blank" rel="noopener noreferrer" aria-label="فتح صفحة فيسبوك">
+      <span class="social-icon facebook-icon">f</span><span>فيسبوك</span>
+    </a>
+    <a class="social-link" href="https://wa.me/9647721754555" target="_blank" rel="noopener noreferrer" aria-label="فتح واتساب">
+      <span class="social-icon whatsapp-icon">☎</span><span>واتساب</span>
+    </a>
+  </div>
+
   <div class="footer">
     <div style="margin-bottom:10px">
       <a href="about.html" style="color:#9ed2ff;margin:0 7px">عن المنظومة</a>
@@ -241,8 +242,6 @@ function updatePlatformRoute(){
     box.textContent = r.name;
   }
 }
-
-
 
 function connectGoogle(){
   const clientId = GOOGLE_CLIENT_ID;
